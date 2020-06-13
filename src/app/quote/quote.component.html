@@ -1,7 +1,10 @@
-<h1>Quotes</h1>
-<div ngFor="let quote of quotes">
-  <p>{{ quote.statement }}</p>
-  <p>
+<div>
+  <h1>Quotes</h1>
+  <h3>Weekly Theme: Black Lives Matter</h3>
+  <hr />
+
+  <p *ngFor="let quote of quotes">
+    {{ quote.statement }} <br />
     <em>{{ quote.author }}</em>
   </p>
 </div>
