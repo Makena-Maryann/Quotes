@@ -6,5 +6,6 @@
   <p *ngFor="let quote of quotes">
     {{ quote.statement }} <br />
     <em>{{ quote.author }}</em>
+    <app-quote-detail [goal]="goal"></app-quote-detail>
   </p>
 </div>
