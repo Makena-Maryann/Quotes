@@ -7,7 +7,7 @@
     {{ quote.statement }} <br />
     <em>{{ quote.author }}</em>
     <app-quote-detail [quote]="quote"></app-quote-detail>
-    <button (click)="upVotes(i)">Up Vote</button>
-    <button (click)="downVotes(i)">Down Vote</button>
+    <button (click)="upVotes(i)">Up Vote</button> {{ quote.upVote }}
+    <button (click)="downVotes(i)">Down Vote</button>{{ quote.downVote }}
   </p>
 </div>

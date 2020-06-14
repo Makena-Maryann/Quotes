@@ -29,6 +29,7 @@ export class QuoteComponent implements OnInit {
       'Christine'
     ),
   ];
+
   upVotes(index) {
     this.quotes[index].upVote++;
   }
