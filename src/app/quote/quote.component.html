@@ -1,16 +1,30 @@
-<div>
-  <h1>Quotes</h1>
-  <h3>Weekly Theme: Black Lives Matter</h3>
-  <hr />
-
-  <p *ngFor="let quote of quotes; let i = index">
-    <span appHighlight>{{ quote.statement }}</span> <br />
-    <em>{{ quote.author }}</em>
-    <button (click)="upVotes(i)">Up Vote</button> {{ quote.upVote }}
-    <button (click)="downVotes(i)">Down Vote</button>{{ quote.downVote }}
-    <app-quote-detail
-      [quote]="quote"
-      (isComplete)="deleteQuote($event, i)"
-    ></app-quote-detail>
-  </p>
+<h1>Quotes</h1>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div *ngFor="let quote of quotes; let i = index" class="card m-5">
+        <!--' appHighlight' This goes into the div above-->
+        <div class="card-header">
+          Theme: Black Lives Matter
+        </div>
+        <div class="card-body">
+          <p>
+            {{ quote.statement }}
+          </p>
+          <app-quote-detail
+            [quote]="quote"
+            (isComplete)="deleteQuote($event, i)"
+          ></app-quote-detail>
+          <button (click)="upVotes(i)" class="btn btn-primary">Like</button>
+          {{ quote.upVote }}
+          <button (click)="downVotes(i)" class="mr-2 btn btn-danger">
+            Dislike</button
+          >{{ quote.downVote }}
+          <span class="blockquote-footer text-right">
+            {{ quote.author }} <cite title="Source Title">Source Title</cite>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
