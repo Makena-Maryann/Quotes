@@ -29,6 +29,12 @@ export class QuoteComponent implements OnInit {
       'Christine'
     ),
   ];
+  upVotes(index) {
+    this.quotes[index].upVote++;
+  }
+  downVotes(index) {
+    this.quotes[index].downVote++;
+  }
 
   constructor() {}
 
