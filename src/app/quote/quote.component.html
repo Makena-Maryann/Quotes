@@ -6,8 +6,11 @@
   <p *ngFor="let quote of quotes; let i = index">
     <span appHighlight>{{ quote.statement }}</span> <br />
     <em>{{ quote.author }}</em>
-    <app-quote-detail [quote]="quote"></app-quote-detail>
     <button (click)="upVotes(i)">Up Vote</button> {{ quote.upVote }}
     <button (click)="downVotes(i)">Down Vote</button>{{ quote.downVote }}
+    <app-quote-detail
+      [quote]="quote"
+      (isComplete)="deleteQuote($event, i)"
+    ></app-quote-detail>
   </p>
 </div>
