@@ -4,7 +4,7 @@
   <hr />
 
   <p *ngFor="let quote of quotes; let i = index">
-    {{ quote.statement }} <br />
+    <span appHighlight>{{ quote.statement }}</span> <br />
     <em>{{ quote.author }}</em>
     <app-quote-detail [quote]="quote"></app-quote-detail>
     <button (click)="upVotes(i)">Up Vote</button> {{ quote.upVote }}
