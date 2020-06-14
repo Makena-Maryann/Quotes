@@ -3,9 +3,11 @@
   <h3>Weekly Theme: Black Lives Matter</h3>
   <hr />
 
-  <p *ngFor="let quote of quotes">
+  <p *ngFor="let quote of quotes; let i = index">
     {{ quote.statement }} <br />
     <em>{{ quote.author }}</em>
     <app-quote-detail [quote]="quote"></app-quote-detail>
+    <button (click)="upVotes(i)">Up Vote</button>
+    <button (click)="downVotes(i)">Down Vote</button>
   </p>
 </div>
