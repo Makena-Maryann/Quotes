@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <h2 class="text-center">Post a Quote</h2>
   <hr />
-  <form action="">
+  <form #quoteForm="ngForm">
     <div class="form-group">
       <label for="statement">Quote</label>
       <textarea
@@ -10,19 +10,68 @@
         cols="30"
         rows="10"
         required
+        required
+        [(ngModel)]="newQuote.statement"
+        name="statement"
+        #statement="ngModel"
       ></textarea>
+      <div
+        [hidden]="statement.valid || statement.pristine"
+        class="alert alert-danger"
+      >
+        <p>Quote is required</p>
+      </div>
     </div>
     <div class="form-group">
       <label for="author">Author</label>
-      <input type="text" id="author" class="form-control" required />
+      <input
+        type="text"
+        id="author"
+        class="form-control"
+        required
+        [(ngModel)]="newQuote.author"
+        name="author"
+        #author="ngModel"
+      />
+      <div
+        [hidden]="author.valid || author.pristine"
+        class="alert alert-danger"
+      >
+        <p>Author Name is required</p>
+      </div>
     </div>
     <div class="form-group">
       <label for="name">Name</label>
-      <input type="text" id="name" class="form-control" required />
+      <input
+        type="text"
+        id="name"
+        class="form-control"
+        required
+        [(ngModel)]="newQuote.name"
+        name="name"
+        #name="ngModel"
+      />
+      <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+        <p>Name is required</p>
+      </div>
     </div>
     <div class="form-group">
-      <label for="dateOfPosting"></label>
-      <input type="date" id="dateOfPosting" required />
+      <label for="posting">Date</label>
+      <input
+        type="date"
+        id="posting"
+        [(ngModel)]="newQuote.postDate"
+        name="postDate"
+        #postDate="ngModel"
+        required
+      />
+      <div
+        [hidden]="postDate.valid || postDate.pristine"
+        class="alert alert-danger"
+      >
+        <p>Date is required</p>
+      </div>
     </div>
+    <button type="submit" class="btn btn-success">Post Quote</button>
   </form>
 </div>
