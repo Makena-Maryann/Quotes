@@ -1,28 +1,37 @@
-<h1>Quotes</h1>
-<div class="container">
+<nav class="navbar fixed-top navbar-dark">
+  <h2>Quotes Appreciation site</h2>
+  <button class="navbar-toggler btn-outline-dark menu" type="button">
+    <span class="navbar-toggler-icon text-white"></span>
+  </button>
+</nav>
+<div class="container p-5">
   <div class="row">
     <div class="col-md-8">
-      <div *ngFor="let quote of quotes; let i = index" class="card m-5">
+      <div
+        *ngFor="let quote of quotes; let i = index"
+        class="card bg-dark text-white m-5"
+      >
         <!--' appHighlight' This goes into the div above-->
-        <div class="card-header">
-          Theme: Black Lives Matter
+        <div class="card-header bg-info">
+          <h4>Black Lives Matter</h4>
         </div>
         <div class="card-body">
           <p>
             {{ quote.statement }}
           </p>
+          <span class="blockquote-footer text-right text-white">
+            {{ quote.author }}
+          </span>
           <app-quote-detail
             [quote]="quote"
             (isComplete)="deleteQuote($event, i)"
           ></app-quote-detail>
-          <button (click)="upVotes(i)" class="btn btn-primary">Like</button>
+
+          <button (click)="upVotes(i)" class="btn btn-info mr-2">Like</button>
           {{ quote.upVote }}
           <button (click)="downVotes(i)" class="mr-2 btn btn-danger">
             Dislike</button
           >{{ quote.downVote }}
-          <span class="blockquote-footer text-right">
-            {{ quote.author }} <cite title="Source Title">Source Title</cite>
-          </span>
         </div>
       </div>
     </div>
