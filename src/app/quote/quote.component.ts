@@ -51,6 +51,10 @@ export class QuoteComponent implements OnInit {
     this.quotes[index].downVote++;
   }
 
+  addNewQuote(quote) {
+    quote.postDate = new Date(quote.postDate);
+    this.quotes.push(quote);
+  }
   constructor() {}
 
   ngOnInit(): void {}
